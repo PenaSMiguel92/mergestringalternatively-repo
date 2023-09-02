@@ -1,20 +1,20 @@
 public class Solution {
     public String mergeAlternately(String word1, String word2) {
-        int left = 0;
-        int right = 0;
-        boolean alt = false; //false - increment left, true - increment right;
+        int i = 0;
+        int w1l = word1.length();
+        int w2l = word2.length();
         String res = "";
         
-        while (left < word1.length() || right < word2.length()) {
-            if (!alt && left < word1.length())
-                res += word1.charAt(left++);
+        while (i < w1l || i < w2l) {
+            if (i < w1l)
+                res += String.valueOf(word1.charAt(i));
 
-            if (alt && right < word2.length())
-                res += word2.charAt(right++);
+            if (i < w2l)
+                res += String.valueOf(word2.charAt(i));
             
-            alt = !alt;
+            i++;
         }
-        
+
         return res;
     }
 }
